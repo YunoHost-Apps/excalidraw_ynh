@@ -3,50 +3,31 @@
 [![Niveau d'intégration](https://dash.yunohost.org/integration/excalidraw.svg)](https://dash.yunohost.org/appci/app/excalidraw) ![](https://ci-apps.yunohost.org/ci/badges/excalidraw.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/excalidraw.maintain.svg)  
 [![Installer Excalidraw avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=excalidraw)
 
-*[Read this readme in english.](./README.md)* 
+*[Read this readme in english.](./README.md)*
+*[Lire ce readme en français.](./README_fr.md)*
 
-> *Ce package vous permet d'installer Excalidraw rapidement et simplement sur un serveur YunoHost.  
-Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l'installer.*
+> *Ce package vous permet d'installer Excalidraw rapidement et simplement sur un serveur YunoHost.
+Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l'installer et en profiter.*
 
 ## Vue d'ensemble
-CodiMD est un service web de traitement de texte collaboratif en temps réel. Il utilise le langage Markdown.
 
-**Version incluse :** 1.0.0
+Excalidraw is a whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them.
+
+**Version incluse :** 0.10.0~ynh1
+
+**Démo :** https://excalidraw.com/
 
 ## Captures d'écran
 
-![]()
+![](./doc/screenshots/Wzz6UELRpcvkKZQtmVmc.png)
 
-## Démo
+## Documentations et ressources
 
-* [Démo officielle](https://excalidraw.com/)
-
-## Configuration
-
-## Documentation
-
- * Documentation officielle : https://github.com/codimd/server/tree/master/docs/
- * Documentation YunoHost : https://yunohost.org/#/app_codimd_fr
-
-## Caractéristiques spécifiques YunoHost
-
-#### Support multi-utilisateur
-
-* L'authentification LDAP est-elle prise en charge ? **Oui**
-* L'application peut-elle être utilisée par plusieurs utilisateurs ? **Oui**
-
-#### Architectures supportées
-
-* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/excalidraw%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/excalidraw/)
-* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/excalidraw%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/excalidraw/)
-
-## Liens
-
- * Signaler un bug : https://github.com/YunoHost-Apps/excalidraw_ynh/issues
- * Dépôt de l'application principale : https://github.com/excalidraw/excalidraw
- * Site web YunoHost : https://yunohost.org/
-
----
+* Site officiel de l'app : https://excalidraw.com/
+* Documentation officielle de l'admin : https://yunohost.org/packaging_apps
+* Dépôt de code officiel de l'app : https://github.com/excalidraw/excalidraw
+* Documentation YunoHost pour cette app : https://yunohost.org/app_excalidraw
+* Signaler un bug : https://github.com/YunoHost-Apps/excalidraw_ynh/issues
 
 ## Informations pour les développeurs
 
@@ -58,3 +39,5 @@ sudo yunohost app install https://github.com/YunoHost-Apps/excalidraw_ynh/tree/t
 ou
 sudo yunohost app upgrade excalidraw -u https://github.com/YunoHost-Apps/excalidraw_ynh/tree/testing --debug
 ```
+
+**Plus d'infos sur le packaging d'applications :** https://yunohost.org/packaging_apps
