@@ -1,1 +1,1 @@
-Excalidraw is a real-time collaborative word processing web service. It uses Markdown language.
+Excalidraw is a virtual collaborative whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them.

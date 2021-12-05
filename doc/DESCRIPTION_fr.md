@@ -1,1 +1,1 @@
-Excalidraw is a whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them.
+Excalidraw est un outil de tableau blanc collaboratif virtuel qui vous permet d'esquisser facilement des diagrammes qui ont l'impression d'être dessinés à la main.
