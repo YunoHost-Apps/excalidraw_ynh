@@ -1,0 +1,5 @@
+SOURCE_URL=https://github.com/excalidraw/excalidraw/releases/download/v0.10.0/excalidraw-excalidraw-0.10.0.tgz
+SOURCE_SUM=764d539c638d574aa65f5371253fd455aea7a4a4fbaef930a6b13af2ed7692a4
+SOURCE_SUM_PRG=sha256sum
+SOURCE_FORMAT=tar.gz
+SOURCE_IN_SUBDIR=true
