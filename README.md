@@ -15,8 +15,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 
-Excalidraw is a real-time collaborative word processing web service. It uses Markdown language.
-
+Excalidraw is a virtual collaborative whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them.
 
 **Shipped version:** 0.10.0~ynh1
 
@@ -29,7 +28,6 @@ Excalidraw is a real-time collaborative word processing web service. It uses Mar
 ## Documentation and resources
 
 * Official app website: https://excalidraw.com/
-* Official admin documentation: https://yunohost.org/packaging_apps
 * Upstream app code repository: https://github.com/excalidraw/excalidraw
 * YunoHost documentation for this app: https://yunohost.org/app_excalidraw
 * Report a bug: https://github.com/YunoHost-Apps/excalidraw_ynh/issues

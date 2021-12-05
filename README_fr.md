@@ -11,7 +11,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 ## Vue d'ensemble
 
-Excalidraw is a whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them.
+Excalidraw est un outil de tableau blanc collaboratif virtuel qui vous permet d'esquisser facilement des diagrammes qui ont l'impression d'être dessinés à la main.
 
 **Version incluse :** 0.10.0~ynh1
 
@@ -24,7 +24,6 @@ Excalidraw is a whiteboard tool that lets you easily sketch diagrams that have a
 ## Documentations et ressources
 
 * Site officiel de l'app : https://excalidraw.com/
-* Documentation officielle de l'admin : https://yunohost.org/packaging_apps
 * Dépôt de code officiel de l'app : https://github.com/excalidraw/excalidraw
 * Documentation YunoHost pour cette app : https://yunohost.org/app_excalidraw
 * Signaler un bug : https://github.com/YunoHost-Apps/excalidraw_ynh/issues
