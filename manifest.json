@@ -6,12 +6,12 @@
         "en": "Virtual whiteboard for sketching hand-drawn like diagrams",
         "fr": "Tableau blanc collaboratif virtuel qui vous permet d'esquisser facilement des diagrammes"
     },
-    "version": "0.10.0~ynh1",
+    "version": "0.11.0~ynh1",
     "url": "https://excalidraw.com/",
     "upstream": {
         "license": "MIT",
-        "website": "https://excalidraw.com/",
-        "demo": "https://excalidraw.com/",
+        "website": "https://excalidraw.com",
+        "demo": "https://excalidraw.com",
         "code": "https://github.com/excalidraw/excalidraw"
     },
     "license": "MIT",
@@ -40,10 +40,6 @@
             {
                 "name": "is_public",
                 "type": "boolean",
-                "help": {
-                    "en": "If enabled, Excalidraw will be accessible by people who do not have an account. This can be changed later via the webadmin.",
-                    "fr": "Si cette case est cochée, Excalidraw sera accessible aux personnes n’ayant pas de compte. Vous pourrez changer ceci plus tard via la webadmin."
-                },
                 "default": true
             }
         ]
