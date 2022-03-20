@@ -7,9 +7,10 @@ Type=simple
 User=__APP__
 Group=__APP__
 WorkingDirectory=__FINALPATH__/
-Environment="PATH=__ENV_PATH__"
+Environment="__YNH_NODE_LOAD_PATH__"
 Environment="NODE_ENV=production"
-ExecStart=__YNH_NODE__ start
+Environment="PORT=__PORT__"
+ExecStart=/usr/bin/yarn start
 Restart=always
 
 [Install]
