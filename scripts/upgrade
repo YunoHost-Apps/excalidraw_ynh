@@ -19,7 +19,6 @@ app=$YNH_APP_INSTANCE_NAME
 domain=$(ynh_app_setting_get --app=$app --key=domain)
 path_url=$(ynh_app_setting_get --app=$app --key=path)
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
-port=$(ynh_app_setting_get --app=$app --key=port)
 
 #=================================================
 # CHECK VERSION
@@ -46,11 +45,22 @@ ynh_abort_if_errors
 #=================================================
 # STANDARD UPGRADE STEPS
 #=================================================
-# STOP SYSTEMD SERVICE
+# ENSURE DOWNWARD COMPATIBILITY
 #=================================================
-ynh_script_progression --message="Stopping a systemd service..." --weight=1
+ynh_script_progression --message="Ensuring downward compatibility..."
 
-ynh_systemd_action --service_name=$app --action="stop" --log_path="systemd"
+# Remove the service from the list of services known by Yunohost (added from `yunohost service add`)
+if ynh_exec_warn_less yunohost service status $app >/dev/null
+then
+	ynh_script_progression --message="Removing $app service..." --weight=1
+	yunohost service remove $app
+fi
+
+# Remove the dedicated systemd config
+ynh_remove_systemd_config
+
+# Remove the app-specific logrotate config
+ynh_remove_logrotate
 
 #=================================================
 # CREATE DEDICATED USER
@@ -64,13 +74,10 @@ ynh_system_user_create --username=$app --home_dir="$final_path"
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 
-if [ "$upgrade_type" == "UPGRADE_APP" ]
-then
-	ynh_script_progression --message="Upgrading source files..." --weight=1
+ynh_script_progression --message="Upgrading source files..." --weight=1
 
-	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir="$final_path"
-fi
+# Download, check integrity, uncompress and patch the source from app.src
+ynh_setup_source --dest_dir="$final_path/build"
 
 chmod 750 "$final_path"
 chmod -R o-rwx "$final_path"
@@ -89,52 +96,34 @@ ynh_add_nginx_config
 #=================================================
 ynh_script_progression --message="Upgrading dependencies..." --weight=18
 
-ynh_install_app_dependencies $pkg_dependencies
-
-# Install Nodejs
+ynh_exec_warn_less ynh_install_app_dependencies $pkg_dependencies
 ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
-
-# Install Yarn
-ynh_install_extra_app_dependencies --repo="deb https://dl.yarnpkg.com/debian/ stable main" --package="yarn" --key="https://dl.yarnpkg.com/debian/pubkey.gpg"
+ynh_exec_warn_less ynh_install_extra_app_dependencies --repo="deb https://dl.yarnpkg.com/debian/ stable main" --package="yarn" --key="https://dl.yarnpkg.com/debian/pubkey.gpg"
 
 #=================================================
 # SPECIFIC UPGRADE
 #=================================================
 # BUILD APP
 #=================================================
+ynh_script_progression --message="Building app... (this will take some time and resources!)" --weight=40
 
-if [ "$upgrade_type" == "UPGRADE_APP" ]
-then
-	ynh_script_progression --message="Building app... (this will take some time and resources!)" --weight=60
+pushd "$final_path/build"
+	ynh_use_nodejs
+	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn install --ignore-optional
+	ynh_exec_warn_less ynh_exec_as $app env NODE_ENV=production $ynh_node_load_PATH yarn build
+	ynh_exec_warn_less ynh_exec_as $app env NODE_ENV=production $ynh_node_load_PATH yarn cache clean --all
+popd
 
-	pushd "$final_path"	
-		ynh_use_nodejs
-		ynh_exec_as $app env $ynh_node_load_PATH yarn install 2>/dev/null
-	popd
-fi
+ynh_secure_remove --file="$final_path/live"
+ynh_exec_as $app mv "$final_path/build/build" "$final_path/live"
+ynh_secure_remove --file="$final_path/build"
 
-#=================================================
-# SETUP SYSTEMD
-#=================================================
-ynh_script_progression --message="Upgrading systemd configuration..." --weight=2
-
-# Create a dedicated systemd config
-ynh_add_systemd_config
+chmod 750 "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R $app:www-data "$final_path"
 
 #=================================================
-# INTEGRATE SERVICE IN YUNOHOST
-#=================================================
-ynh_script_progression --message="Integrating service in YunoHost..."
-
-yunohost service add $app --description="Collaborative drawing" --log="/var/log/$app/$app.log"
-
-#=================================================
-# START SYSTEMD SERVICE
-#=================================================
-ynh_script_progression --message="Starting a systemd service..." --weight=1
-
-ynh_systemd_action --service_name=$app --action="start" --log_path="systemd" #--line_match="HTTP Server listening"
-
+# GENERIC FINALIZATION
 #=================================================
 # RELOAD NGINX
 #=================================================

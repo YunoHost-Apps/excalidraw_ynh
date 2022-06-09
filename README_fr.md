@@ -5,7 +5,7 @@ It shall NOT be edited by hand.
 
 # Excalidraw pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/excalidraw.svg)](https://dash.yunohost.org/appci/app/excalidraw) ![Status du fonctionnement](https://ci-apps.yunohost.org/ci/badges/excalidraw.status.svg) ![Status de maintenance](https://ci-apps.yunohost.org/ci/badges/excalidraw.maintain.svg)  
+[![Niveau d'intégration](https://dash.yunohost.org/integration/excalidraw.svg)](https://dash.yunohost.org/appci/app/excalidraw) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/excalidraw.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/excalidraw.maintain.svg)  
 [![Installer Excalidraw avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=excalidraw)
 
 *[Read this readme in english.](./README.md)*
@@ -18,7 +18,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 Excalidraw est un outil de tableau blanc collaboratif virtuel qui vous permet d'esquisser facilement des diagrammes qui ont l'impression d'être dessinés à la main.
 
 
-**Version incluse :** 0.11.0~ynh1
+**Version incluse :** 0.11.0~ynh2
 
 **Démo :** https://excalidraw.com
 
