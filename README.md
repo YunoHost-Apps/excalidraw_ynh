@@ -25,7 +25,7 @@ Excalidraw is a virtual collaborative whiteboard tool that lets you easily sketc
 
 ## Screenshots
 
-![Screenshot of Excalidraw](./doc/screenshots/Wzz6UELRpcvkKZQtmVmc.png)
+![Screenshot of Excalidraw](./doc/screenshots/screenshot.png)
 
 ## Documentation and resources
 

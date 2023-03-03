@@ -25,7 +25,7 @@ Excalidraw est un outil de tableau blanc collaboratif virtuel qui vous permet d'
 
 ## Captures d’écran
 
-![Capture d’écran de Excalidraw](./doc/screenshots/Wzz6UELRpcvkKZQtmVmc.png)
+![Capture d’écran de Excalidraw](./doc/screenshots/screenshot.png)
 
 ## Documentations et ressources
 
