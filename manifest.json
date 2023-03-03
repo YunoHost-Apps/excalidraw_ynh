@@ -6,7 +6,7 @@
         "en": "Virtual whiteboard for sketching hand-drawn like diagrams",
         "fr": "Tableau blanc collaboratif virtuel qui vous permet d'esquisser facilement des diagrammes"
     },
-    "version": "0.11.0~ynh2",
+    "version": "0.14.2~ynh1",
     "url": "https://excalidraw.com/",
     "upstream": {
         "license": "MIT",
@@ -19,7 +19,7 @@
         "name": ""
     },
     "requirements": {
-        "yunohost": ">= 4.3.0"
+        "yunohost": ">= 11.1.12"
     },
     "multi_instance": true,
     "services": [

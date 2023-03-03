@@ -5,7 +5,8 @@ It shall NOT be edited by hand.
 
 # Excalidraw for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/excalidraw.svg)](https://dash.yunohost.org/appci/app/excalidraw) ![Working status](https://ci-apps.yunohost.org/ci/badges/excalidraw.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/excalidraw.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/excalidraw.svg)](https://dash.yunohost.org/appci/app/excalidraw) ![Working status](https://ci-apps.yunohost.org/ci/badges/excalidraw.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/excalidraw.maintain.svg)
+
 [![Install Excalidraw with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=excalidraw)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -18,7 +19,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 Excalidraw is a virtual collaborative whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them.
 
 
-**Shipped version:** 0.11.0~ynh2
+**Shipped version:** 0.14.2~ynh1
 
 **Demo:** https://excalidraw.com
 
