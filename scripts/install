@@ -53,7 +53,7 @@ pushd "$install_dir/build"
 popd
 
 ynh_exec_as $app mv "$install_dir/build/build" "$install_dir/live"
-#REMOVEME? ynh_secure_remove --file="$install_dir/build"
+ynh_secure_remove --file="$install_dir/build"
 
 chmod 750 "$install_dir"
 chmod -R o-rwx "$install_dir"
