@@ -19,7 +19,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 Excalidraw is a virtual collaborative whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them.
 
 
-**Shipped version:** 0.11.0~ynh2
+**Shipped version:** 0.14.2~ynh1
 
 **Demo:** https://excalidraw.com
 
