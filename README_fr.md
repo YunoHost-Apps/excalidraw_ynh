@@ -19,13 +19,13 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 Excalidraw est un outil de tableau blanc collaboratif virtuel qui vous permet d'esquisser facilement des diagrammes qui ont l'impression d'être dessinés à la main.
 
 
-**Version incluse :** 0.14.2~ynh1
+**Version incluse :** 0.14.2~ynh2
 
 **Démo :** https://excalidraw.com
 
 ## Captures d’écran
 
-![Capture d’écran de Excalidraw](./doc/screenshots/Wzz6UELRpcvkKZQtmVmc.png)
+![Capture d’écran de Excalidraw](./doc/screenshots/screenshot.png)
 
 ## Documentations et ressources
 

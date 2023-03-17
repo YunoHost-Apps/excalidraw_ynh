@@ -1,0 +1,57 @@
+packaging_format = 2
+
+id = "excalidraw"
+name = "Excalidraw"
+description.en = "Virtual whiteboard for sketching hand-drawn like diagrams"
+description.fr = "Tableau blanc collaboratif virtuel qui vous permet d'esquisser facilement des diagrammes"
+
+version = "0.14.2~ynh2"
+
+maintainers = []
+
+[upstream]
+license = "MIT"
+website = "https://excalidraw.com"
+demo = "https://excalidraw.com"
+code = "https://github.com/excalidraw/excalidraw"
+
+[integration]
+yunohost = ">= 11.1.15"
+architectures = "all"
+multi_instance = true
+ldap = false
+sso = false
+disk = "50M"
+ram.build = "1500M"
+ram.runtime = "50M"
+
+[install]
+    [install.domain]
+    type = "domain"
+    full_domain = true
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
+
+[resources]
+
+    [resources.sources]
+
+        [resources.sources.main]
+        url = "https://github.com/excalidraw/excalidraw/archive/refs/tags/v0.14.2.tar.gz"
+        sha256 = "cb692d49d87b7809bda40a99490b6937a30f0457dca2a4b994055e327129408a"
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.apt]
+    packages = "apt-transport-https"
+    
+    extras.yarn.repo = "deb https://dl.yarnpkg.com/debian/ stable main"
+    extras.yarn.key = "https://dl.yarnpkg.com/debian/pubkey.gpg"
+    extras.yarn.packages = "yarn"
