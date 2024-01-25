@@ -42,6 +42,8 @@ ram.runtime = "50M"
         url = "https://github.com/excalidraw/excalidraw/archive/refs/tags/v0.17.0.tar.gz"
         sha256 = "8806dbb31df6d164aabad661bb79191cc603859d50b00565b864069ee390e230"
 
+        autoupdate.strategy = "latest_github_tag"
+
     [resources.system_user]
 
     [resources.install_dir]
