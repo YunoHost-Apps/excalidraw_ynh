@@ -31,7 +31,7 @@ Excalidraw est un outil de tableau blanc collaboratif virtuel qui vous permet d'
 
 * Site officiel de l’app : <https://excalidraw.com>
 * Dépôt de code officiel de l’app : <https://github.com/excalidraw/excalidraw>
-* Documentation YunoHost pour cette app : <https://yunohost.org/app_excalidraw>
+* YunoHost Store: <https://apps.yunohost.org/app/excalidraw>
 * Signaler un bug : <https://github.com/YunoHost-Apps/excalidraw_ynh/issues>
 
 ## Informations pour les développeurs

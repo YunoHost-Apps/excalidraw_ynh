@@ -31,7 +31,7 @@ Excalidraw is a virtual collaborative whiteboard tool that lets you easily sketc
 
 * Official app website: <https://excalidraw.com>
 * Upstream app code repository: <https://github.com/excalidraw/excalidraw>
-* YunoHost documentation for this app: <https://yunohost.org/app_excalidraw>
+* YunoHost Store: <https://apps.yunohost.org/app/excalidraw>
 * Report a bug: <https://github.com/YunoHost-Apps/excalidraw_ynh/issues>
 
 ## Developer info
