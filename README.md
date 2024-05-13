@@ -9,7 +9,7 @@ It shall NOT be edited by hand.
 
 [![Install Excalidraw with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=excalidraw)
 
-*[Read this README is other languages.](./ALL_README.md)*
+*[Read this README in other languages.](./ALL_README.md)*
 
 > *This package allows you to install Excalidraw quickly and simply on a YunoHost server.*  
 > *If you don't have YunoHost, please consult [the guide](https://yunohost.org/install) to learn how to install it.*
@@ -19,7 +19,7 @@ It shall NOT be edited by hand.
 Excalidraw is a virtual collaborative whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them.
 
 
-**Shipped version:** 0.17.3~ynh1
+**Shipped version:** 0.17.3~ynh2
 
 **Demo:** <https://excalidraw.com>
 

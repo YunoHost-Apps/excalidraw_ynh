@@ -5,7 +5,7 @@ name = "Excalidraw"
 description.en = "Virtual whiteboard for sketching hand-drawn like diagrams"
 description.fr = "Tableau blanc collaboratif virtuel qui vous permet d'esquisser facilement des diagrammes"
 
-version = "0.17.3~ynh1"
+version = "0.17.3~ynh2"
 
 maintainers = []
 
@@ -28,7 +28,6 @@ ram.runtime = "50M"
 [install]
     [install.domain]
     type = "domain"
-    full_domain = true
 
     [install.init_main_permission]
     type = "group"
