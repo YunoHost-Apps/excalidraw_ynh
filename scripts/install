@@ -1,66 +1,54 @@
 #!/bin/bash
 
-#=================================================
-# GENERIC START
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# STANDARD MODIFICATIONS
-#=================================================
 # INSTALL DEPENDENCIES
 #=================================================
-ynh_script_progression --message="Installing dependencies..." --weight=20
+ynh_script_progression "Installing dependencies..."
 
-ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
+ynh_nodejs_install
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..." --weight=2
+ynh_script_progression "Setting up source files..."
 
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir/build"
 
-chmod -R o-rwx "$install_dir"
-chown -R $app:www-data "$install_dir"
-
+#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod -R o-rwx "$install_dir"
+#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R $app:www-data "$install_dir"
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring NGINX web server..." --weight=2
+ynh_script_progression "Configuring NGINX web server..."
 
 # Create a dedicated NGINX config
-ynh_add_nginx_config
+ynh_config_add_nginx
 
 #=================================================
 # SPECIFIC SETUP
 #==============================================
 # BUILD APP
 #==============================================
-ynh_script_progression --message="Building app... (this will take some time and resources!)" --weight=40
-
-ynh_use_nodejs
+ynh_script_progression "Building app... (this will take some time and resources!)"
 
 pushd "$install_dir/build"
-	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn install --ignore-optional
-	ynh_exec_warn_less ynh_exec_as $app env NODE_ENV=production $ynh_node_load_PATH yarn build
-	ynh_exec_warn_less ynh_exec_as $app env NODE_ENV=production $ynh_node_load_PATH yarn cache clean --all
+	ynh_hide_warnings ynh_exec_as_app node_load_PATH yarn install --ignore-optional
+	ynh_hide_warnings ynh_exec_as_app NODE_ENV=production node_load_PATH yarn build
+	ynh_hide_warnings ynh_exec_as_app NODE_ENV=production node_load_PATH yarn cache clean --all
 popd
 
-ynh_exec_as $app mv "$install_dir/build/build" "$install_dir/live"
-ynh_secure_remove --file="$install_dir/build"
+ynh_exec_as_app mv "$install_dir/build/build" "$install_dir/live"
+ynh_safe_rm "$install_dir/build"
 
-chmod 750 "$install_dir"
-chmod -R o-rwx "$install_dir"
-chown -R $app:www-data "$install_dir"
-
+#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod 750 "$install_dir"
+#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod -R o-rwx "$install_dir"
+#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R $app:www-data "$install_dir"
 #=================================================
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of $app completed" --last
+ynh_script_progression "Installation of $app completed"
