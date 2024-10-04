@@ -15,38 +15,29 @@ ynh_nodejs_install
 #=================================================
 ynh_script_progression "Setting up source files..."
 
-# Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir/build"
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod -R o-rwx "$install_dir"
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R $app:www-data "$install_dir"
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
 ynh_script_progression "Configuring NGINX web server..."
 
-# Create a dedicated NGINX config
 ynh_config_add_nginx
 
-#=================================================
-# SPECIFIC SETUP
 #==============================================
 # BUILD APP
 #==============================================
 ynh_script_progression "Building app... (this will take some time and resources!)"
 
 pushd "$install_dir/build"
-	ynh_hide_warnings ynh_exec_as_app node_load_PATH yarn install --ignore-optional
-	ynh_hide_warnings ynh_exec_as_app NODE_ENV=production node_load_PATH yarn build
-	ynh_hide_warnings ynh_exec_as_app NODE_ENV=production node_load_PATH yarn cache clean --all
+	ynh_hide_warnings ynh_exec_as_app yarn install --ignore-optional
+	ynh_hide_warnings ynh_exec_as_app NODE_ENV=production yarn build
+	ynh_hide_warnings ynh_exec_as_app NODE_ENV=production yarn cache clean --all
 popd
 
 ynh_exec_as_app mv "$install_dir/build/build" "$install_dir/live"
 ynh_safe_rm "$install_dir/build"
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod 750 "$install_dir"
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod -R o-rwx "$install_dir"
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R $app:www-data "$install_dir"
 #=================================================
 # END OF SCRIPT
 #=================================================
