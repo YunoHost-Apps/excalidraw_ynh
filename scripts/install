@@ -37,6 +37,7 @@ popd
 
 ynh_exec_as_app mv "$install_dir/build/build" "$install_dir/live"
 ynh_safe_rm "$install_dir/build"
+chown -R "$app:www-data" "$install_dir"
 
 #=================================================
 # END OF SCRIPT
