@@ -5,7 +5,9 @@ EZ editatu eskuz.
 
 # Excalidraw YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/excalidraw.svg)](https://dash.yunohost.org/appci/app/excalidraw) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/excalidraw.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/excalidraw.maintain.svg)
+[![Integrazio maila](https://apps.yunohost.org/badge/integration/excalidraw)](https://ci-apps.yunohost.org/ci/apps/excalidraw/)
+![Funtzionamendu egoera](https://apps.yunohost.org/badge/state/excalidraw)
+![Mantentze egoera](https://apps.yunohost.org/badge/maintained/excalidraw)
 
 [![Instalatu Excalidraw YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=excalidraw)
 

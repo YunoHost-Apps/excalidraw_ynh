@@ -5,7 +5,9 @@
 
 # YunoHost 上的 Excalidraw
 
-[![集成程度](https://dash.yunohost.org/integration/excalidraw.svg)](https://dash.yunohost.org/appci/app/excalidraw) ![工作状态](https://ci-apps.yunohost.org/ci/badges/excalidraw.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/excalidraw.maintain.svg)
+[![集成程度](https://apps.yunohost.org/badge/integration/excalidraw)](https://ci-apps.yunohost.org/ci/apps/excalidraw/)
+![工作状态](https://apps.yunohost.org/badge/state/excalidraw)
+![维护状态](https://apps.yunohost.org/badge/maintained/excalidraw)
 
 [![使用 YunoHost 安装 Excalidraw](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=excalidraw)
 
