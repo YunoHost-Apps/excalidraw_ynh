@@ -5,7 +5,9 @@ Il NE doit PAS être modifié à la main.
 
 # Excalidraw pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/excalidraw.svg)](https://dash.yunohost.org/appci/app/excalidraw) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/excalidraw.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/excalidraw.maintain.svg)
+[![Niveau d’intégration](https://apps.yunohost.org/badge/integration/excalidraw)](https://ci-apps.yunohost.org/ci/apps/excalidraw/)
+![Statut du fonctionnement](https://apps.yunohost.org/badge/state/excalidraw)
+![Statut de maintenance](https://apps.yunohost.org/badge/maintained/excalidraw)
 
 [![Installer Excalidraw avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=excalidraw)
 

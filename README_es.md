@@ -5,7 +5,9 @@ No se debe editar a mano.
 
 # Excalidraw para Yunohost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/excalidraw.svg)](https://dash.yunohost.org/appci/app/excalidraw) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/excalidraw.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/excalidraw.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/excalidraw)](https://ci-apps.yunohost.org/ci/apps/excalidraw/)
+![Estado funcional](https://apps.yunohost.org/badge/state/excalidraw)
+![Estado En Mantención](https://apps.yunohost.org/badge/maintained/excalidraw)
 
 [![Instalar Excalidraw con Yunhost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=excalidraw)
 
@@ -36,7 +38,7 @@ Excalidraw is a virtual collaborative whiteboard tool that lets you easily sketc
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/excalidraw_ynh/tree/testing
+Por favor enviar sus correcciones a la [rama `testing`](https://github.com/YunoHost-Apps/excalidraw_ynh/tree/testing).
 
 Para probar la rama `testing`, sigue asÍ:
 
