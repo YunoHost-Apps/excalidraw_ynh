@@ -21,7 +21,7 @@ Il NE doit PAS être modifié à la main.
 Excalidraw est un outil de tableau blanc collaboratif virtuel qui vous permet d'esquisser facilement des diagrammes qui ont l'impression d'être dessinés à la main.
 
 
-**Version incluse :** 0.17.3~ynh2
+**Version incluse :** 0.18.0~ynh1
 
 **Démo :** <https://excalidraw.com>
 
