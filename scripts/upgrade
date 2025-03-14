@@ -71,14 +71,14 @@ ynh_script_progression --message="Building app... (this will take some time and 
 
 pushd "$install_dir/build"
 	ynh_use_nodejs
-	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn install --ignore-optional
-	ynh_exec_warn_less ynh_exec_as $app env NODE_ENV=production $ynh_node_load_PATH yarn build
+	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn install
+	ynh_exec_warn_less ynh_exec_as $app env NODE_ENV=production $ynh_node_load_PATH NODE_OPTIONS="--max-old-space-size=3000" yarn build
 	ynh_exec_warn_less ynh_exec_as $app env NODE_ENV=production $ynh_node_load_PATH yarn cache clean --all
 popd
 
-#REMOVEME? ynh_secure_remove --file="$install_dir/live"
-ynh_exec_as $app mv "$install_dir/build/build" "$install_dir/live"
-#REMOVEME? ynh_secure_remove --file="$install_dir/build"
+ynh_secure_remove --file="$install_dir/live"
+ynh_exec_as $app mv "$install_dir/build/excalidraw-app/build" "$install_dir/live"
+ynh_secure_remove --file="$install_dir/build"
 
 chmod 750 "$install_dir"
 chmod -R o-rwx "$install_dir"
