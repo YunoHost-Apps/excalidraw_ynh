@@ -21,7 +21,7 @@ Hij mag NIET handmatig aangepast worden.
 Excalidraw is a virtual collaborative whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them.
 
 
-**Geleverde versie:** 0.17.3~ynh2
+**Geleverde versie:** 0.18.0~ynh1
 
 **Demo:** <https://excalidraw.com>
 
