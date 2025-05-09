@@ -52,6 +52,10 @@ ynh_safe_rm "$install_dir/live"
 ynh_exec_as_app mv "$install_dir/build/build" "$install_dir/live"
 ynh_safe_rm "$install_dir/build"
 
+chmod 750 "$install_dir"
+chmod -R o-rwx "$install_dir"
+chown -R $app:www-data "$install_dir"
+
 #=================================================
 # END OF SCRIPT
 #=================================================
