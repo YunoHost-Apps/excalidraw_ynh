@@ -6,7 +6,7 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
-source _common.sh
+
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -60,7 +60,7 @@ ynh_add_nginx_config
 #=================================================
 ynh_script_progression --message="Upgrading dependencies..." --weight=18
 
-ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
+#REMOVEME? ynh_exec_warn_less #REMOVEME? ynh_install_nodejs --#REMOVEME? nodejs_version=$nodejs_version
 
 #=================================================
 # SPECIFIC UPGRADE
@@ -70,7 +70,7 @@ ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
 ynh_script_progression --message="Building app... (this will take some time and resources!)" --weight=40
 
 pushd "$install_dir/build"
-	ynh_use_nodejs
+	#REMOVEME? ynh_use_nodejs
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn install
 	ynh_exec_warn_less ynh_exec_as $app env NODE_ENV=production $ynh_node_load_PATH NODE_OPTIONS="--max-old-space-size=3000" yarn build
 	ynh_exec_warn_less ynh_exec_as $app env NODE_ENV=production $ynh_node_load_PATH yarn cache clean --all
