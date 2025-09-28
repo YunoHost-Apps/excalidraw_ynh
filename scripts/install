@@ -30,8 +30,8 @@ ynh_config_add_nginx
 ynh_script_progression "Building app... (this will take some time and resources!)"
 
 pushd "$install_dir/build"
-	ynh_hide_warnings ynh_exec_as_app yarn install --ignore-optional
-	ynh_hide_warnings ynh_exec_as_app NODE_ENV=production yarn build
+	ynh_hide_warnings ynh_exec_as_app yarn install
+	ynh_hide_warnings ynh_exec_as_app NODE_ENV=production NODE_OPTIONS="--max-old-space-size=3000" yarn build
 	ynh_hide_warnings ynh_exec_as_app NODE_ENV=production yarn cache clean --all
 popd
 
