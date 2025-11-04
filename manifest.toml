@@ -18,7 +18,8 @@ demo = "https://excalidraw.com"
 code = "https://github.com/excalidraw/excalidraw"
 
 [integration]
-yunohost = ">= 11.1.15"
+yunohost = ">= 11.2.18"
+helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
 
@@ -50,13 +51,13 @@ ram.runtime = "50M"
     [resources.system_user]
 
     [resources.install_dir]
+    group = "www-data:r-x"
 
     [resources.permissions]
     main.url = "/"
 
     [resources.apt]
     packages = "apt-transport-https"
-    
-    extras.yarn.repo = "deb https://dl.yarnpkg.com/debian/ stable main"
-    extras.yarn.key = "https://dl.yarnpkg.com/debian/pubkey.gpg"
-    extras.yarn.packages = "yarn"
+
+    [resources.nodejs]
+    version = "18"
