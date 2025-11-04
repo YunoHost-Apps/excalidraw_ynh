@@ -1,45 +1,29 @@
 #!/bin/bash
 
-#=================================================
-# GENERIC START
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
-source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# CHECK VERSION
-#=================================================
-
-upgrade_type=$(ynh_check_app_version_changed)
-
-#=================================================
-# STANDARD UPGRADE STEPS
-#=================================================
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
-ynh_script_progression --message="Ensuring downward compatibility..."
+ynh_script_progression "Ensuring downward compatibility..."
 
 # Remove the service from the list of services known by Yunohost (added from `yunohost service add`)
-if ynh_exec_warn_less yunohost service status $app >/dev/null
-then
-	ynh_script_progression --message="Removing $app service..." --weight=1
+if ynh_hide_warnings yunohost service status $app >/dev/null; then
+	ynh_script_progression "Removing $app service..."
 	yunohost service remove $app
 fi
 
 # Remove the dedicated systemd config
-ynh_remove_systemd_config
+ynh_config_remove_systemd
 
 # Remove the app-specific logrotate config
-ynh_remove_logrotate
+ynh_config_remove_logrotate
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 
-ynh_script_progression --message="Upgrading source files..." --weight=1
+ynh_script_progression "Upgrading source files..."
 
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir/build"
@@ -50,35 +34,28 @@ chown -R $app:www-data "$install_dir"
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Upgrading NGINX web server configuration..." --weight=2
+ynh_script_progression "Upgrading NGINX web server configuration..."
 
 # Create a dedicated NGINX config
-ynh_add_nginx_config
+ynh_config_add_nginx
 
-#=================================================
-# UPGRADE DEPENDENCIES
-#=================================================
-ynh_script_progression --message="Upgrading dependencies..." --weight=18
-
-ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
-
-#=================================================
-# SPECIFIC UPGRADE
 #=================================================
 # BUILD APP
 #=================================================
-ynh_script_progression --message="Building app... (this will take some time and resources!)" --weight=40
+ynh_script_progression "Building app... (this will take some time and resources!)"
 
 pushd "$install_dir/build"
-	ynh_use_nodejs
-	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn install
-	ynh_exec_warn_less ynh_exec_as $app env NODE_ENV=production $ynh_node_load_PATH NODE_OPTIONS="--max-old-space-size=3000" yarn build
-	ynh_exec_warn_less ynh_exec_as $app env NODE_ENV=production $ynh_node_load_PATH yarn cache clean --all
+	corepack enable
+    ynh_hide_warnings corepack prepare yarn@latest --activate
+	
+	ynh_hide_warnings ynh_exec_as_app yarn install
+	ynh_hide_warnings ynh_exec_as_app NODE_ENV=production NODE_OPTIONS="--max-old-space-size=3000" yarn build
+	ynh_hide_warnings ynh_exec_as_app NODE_ENV=production yarn cache clean --all
 popd
 
-ynh_secure_remove --file="$install_dir/live"
-ynh_exec_as $app mv "$install_dir/build/excalidraw-app/build" "$install_dir/live"
-ynh_secure_remove --file="$install_dir/build"
+ynh_safe_rm "$install_dir/live"
+ynh_exec_as_app mv "$install_dir/build/excalidraw-app/build" "$install_dir/live"
+ynh_safe_rm "$install_dir/build"
 
 chmod 750 "$install_dir"
 chmod -R o-rwx "$install_dir"
@@ -88,4 +65,4 @@ chown -R $app:www-data "$install_dir"
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Upgrade of $app completed" --last
+ynh_script_progression "Upgrade of $app completed"
