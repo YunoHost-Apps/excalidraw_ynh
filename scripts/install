@@ -22,8 +22,6 @@ ynh_script_progression "Configuring NGINX web server..."
 ynh_config_add_nginx
 
 #=================================================
-# SPECIFIC SETUP
-#=================================================
 # BUILD APP
 #=================================================
 ynh_script_progression "Building app... (this will take some time and resources!)"

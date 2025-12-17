@@ -16,6 +16,7 @@ license = "MIT"
 website = "https://excalidraw.com"
 demo = "https://excalidraw.com"
 code = "https://github.com/excalidraw/excalidraw"
+fund = "https://opencollective.com/excalidraw"
 
 [integration]
 yunohost = ">= 12.1.17"
