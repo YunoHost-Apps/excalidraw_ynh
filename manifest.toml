@@ -7,7 +7,7 @@ name = "Excalidraw"
 description.en = "Virtual whiteboard for sketching hand-drawn like diagrams"
 description.fr = "Tableau blanc collaboratif virtuel qui vous permet d'esquisser facilement des diagrammes"
 
-version = "0.18.0~ynh2"
+version = "0.18.1~ynh1"
 
 maintainers = []
 
@@ -44,8 +44,8 @@ ram.runtime = "50M"
     [resources.sources]
 
     [resources.sources.main]
-    url = "https://github.com/excalidraw/excalidraw/archive/refs/tags/v0.18.0.tar.gz"
-    sha256 = "c6b7856aee49d7a126bbd3b95596e4a175bf19c0e50d2ce70a425300b30f456c"
+    url = "https://github.com/excalidraw/excalidraw/archive/refs/tags/v0.18.1.tar.gz"
+    sha256 = "be44d1d10865ef0ab2474b59e1430eb12e55eb84a3663e7d11818b8ff6a5c93c"
     autoupdate.strategy = "latest_github_release"
 
     [resources.system_user]
